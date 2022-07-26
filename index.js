@@ -63,4 +63,4 @@ client.on('ready', () => {
 })
 
 keepAlive()
-client.login(TOKEN)
+client.login(TOKEN);
