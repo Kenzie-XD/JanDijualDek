@@ -6,6 +6,19 @@ const dotenv = require('dotenv');
 const TOKEN = (process.env.TOKEN);
 const { Client } = require('discord.js-selfbot-v11')
 const client = new Client();
+const discord = require('discord.js-selfbot-v11');
+const fs = require('fs');
+
+const client = new discord.Client();
+const keepAlive = require('./server.js');
+const config = require('./config.json');
+
+const events = fs.readdirSync('./events/');
+events.forEach(file => {
+	const eventname = file.split('.')[0];
+	const event = require(`./events/${file}`);
+	client.on(eventname, event.bind(null, client));
+});
 
 app.get('/', (req, res) => res.send('Please connect me into a hosting'))
 
@@ -62,5 +75,6 @@ client.on('ready', () => {
    console.log(`Log in success!\nEnabled online forever on ${client.user.username}`)
 })
 
-keepAlive()
-client.login(TOKEN);
+
+keepAlive();
+client.login(process.env.TOKEN);
