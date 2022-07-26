@@ -10,3 +10,12 @@
 		}
 	]
 }
+{
+	"applicationid":"applicationID",
+ 	"name":"title",
+ 	"details":"upperText",
+ 	"state":"lowerText",
+ 	"imagename":"image1",
+        "smallimgname": "image2",
+ 	"type":"PLAYING"
+}
